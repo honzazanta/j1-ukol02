@@ -10,17 +10,39 @@ public class HlavniProgram {
     public void start() {
         zofka = new Turtle();
         zofka.penUp();
-        triangl(100, Color.yellow);
-        rectangle(200,150, Color.BLACK);
-        square(250, Color.BLUE);
-        wheel(100, Color.DARK_GRAY);
-        rightTriangle(300, Color.cyan);
+        icecream();
+        //zofka.move(50);
+        //zofka.turnRight(180);
+        //isoscelesTriangle(300, Color.yellow);
+        // rectangle(200,150, Color.BLACK);
+        // square(250, Color.BLUE);
+        //zofka.move(50);
+        //wheel(300, Color.DARK_GRAY);
+        // rightTriangle(300, Color.cyan);
     }
 
-    public void triangl (double sideLenght, Color lineColor) {
+    public void icecream() {
+        zofka.move(50);
+        zofka.turnRight(180);
+        isoscelesTriangle(300, Color.yellow);
+        zofka.move(50);
+        wheel(300, Color.DARK_GRAY);
+    }
+    public void isoscelesTriangle (double sideLength, Color lineColor){
         zofka.setPenColor(lineColor);
-        zofka.turnLeft(180);
-        zofka.move(sideLenght/2);
+        zofka.penDown();
+        zofka.turnLeft(90);
+        zofka.move(sideLength/3);
+        zofka.turnRight(110);
+        zofka.move(sideLength);
+        zofka.turnRight(140);
+        zofka.move(sideLength);
+        zofka.turnRight(110);
+        zofka.move(sideLength/3);
+        zofka.penUp();
+        zofka.turnRight(90);
+    }
+    public void triangl (double sideLenght, Color lineColor) {
         zofka.penDown();
         zofka.turnRight(90);
         zofka.move(sideLenght/2);
@@ -77,18 +99,13 @@ public class HlavniProgram {
 
     public void wheel (double radius, Color lineColor) {
         zofka.setPenColor(lineColor);
-        zofka.turnRight(180);
-        zofka.move(radius);
         zofka.penDown();
         zofka.turnRight(90);
-        for (int i = 0; i < 360/10; i++) {
-            zofka.move(radius/10);
-            zofka.turnRight(radius/10);
+        for (int i = 0; i < radius/2; i++) {
+            zofka.move(radius/70);
+            zofka.turnRight(radius/125);
         }
         zofka.penUp();
-        zofka.turnRight(90);
-        zofka.move(radius);
-
     }
 
     public void rightTriangle(double sideLength, Color lineColor) {
