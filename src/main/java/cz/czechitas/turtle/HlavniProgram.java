@@ -10,17 +10,93 @@ public class HlavniProgram {
     public void start() {
         zofka = new Turtle();
         zofka.penUp();
-        triangl(100, Color.yellow);
-        rectangle(200,150, Color.BLACK);
-        square(250, Color.BLUE);
-        wheel(100, Color.DARK_GRAY);
-        rightTriangle(300, Color.cyan);
+        icecream();
+        zofka.move(250);
+        snowman();
+        zofka.turnLeft(90);
+        zofka.move(300);
+        zofka.turnLeft(180);
+        train();
+        // icecream();
+        // snowman();
+        //zofka.move(50);
+        //zofka.turnRight(180);
+        //isoscelesTriangle(300, Color.yellow);
+        // rectangle(200,150, Color.BLACK);
+        // square(250, Color.BLUE);
+        //zofka.move(50);
+        //wheel(300, Color.DARK_GRAY);
+        // rightTriangle(300, Color.cyan);
     }
 
-    public void triangl (double sideLenght, Color lineColor) {
-        zofka.setPenColor(lineColor);
+    public void train() {
+        rectangle(200,100, Color.blue);
+        zofka.penUp();
+        zofka.move(50);
+        zofka.turnRight(90);
+        zofka.move(150);
+        rectangle(200,100,Color.black);
+        zofka.turnRight(90);
+        zofka.move(65);
+        zofka.turnRight(180);
+        wheel(30,12,Color.red);
+        zofka.turnRight(90);
+        zofka.move(60);
+        zofka.turnRight(90);
+        zofka.move(130);
+        wheel(30,5, Color.BLUE);
+        zofka.turnLeft(90);
+        zofka.move(80);
+        wheel(30,5,Color.pink);
+        zofka.turnLeft(90);
+        zofka.move(50);
+        zofka.turnRight(90);
+        zofka.move(80);
+        zofka.turnLeft(270);
+        triangl(80,Color.pink);
+    }
+    public void snowman() {
+        wheel(30, 15, Color.blue);
+        zofka.turnRight(100);
+        wheel(30, 10, Color.black);
+        zofka.turnRight(75);
+        zofka.move(100);
+        zofka.turnRight(200);
+        wheel(30, 5, Color.yellow);
+        zofka.turnLeft(110);
+        zofka.move(50);
+        zofka.turnRight(90);
+        zofka.move(50);
+        zofka.turnRight(180);
+        wheel(30,3, Color.DARK_GRAY);
+        zofka.turnLeft(80);
+        zofka.move(105);
         zofka.turnLeft(180);
-        zofka.move(sideLenght/2);
+        wheel(30,3,Color.DARK_GRAY);
+    }
+
+    public void icecream() {
+        zofka.move(50);
+        zofka.turnRight(180);
+        isoscelesTriangle(300, Color.yellow);
+        zofka.move(50);
+        wheel(30, 20, Color.DARK_GRAY);
+    }
+    public void isoscelesTriangle (double sideLength, Color lineColor){
+        zofka.setPenColor(lineColor);
+        zofka.penDown();
+        zofka.turnLeft(90);
+        zofka.move(sideLength/3);
+        zofka.turnRight(110);
+        zofka.move(sideLength);
+        zofka.turnRight(140);
+        zofka.move(sideLength);
+        zofka.turnRight(110);
+        zofka.move(sideLength/3);
+        zofka.penUp();
+        zofka.turnRight(90);
+    }
+    public void triangl (double sideLenght, Color lineColor) {
         zofka.penDown();
         zofka.turnRight(90);
         zofka.move(sideLenght/2);
@@ -75,20 +151,16 @@ public class HlavniProgram {
         zofka.move(sideLength/2);
     }
 
-    public void wheel (double radius, Color lineColor) {
+    public void wheel (int pocetStran, double delkaStrany, Color lineColor) {
         zofka.setPenColor(lineColor);
-        zofka.turnRight(180);
-        zofka.move(radius);
         zofka.penDown();
         zofka.turnRight(90);
-        for (int i = 0; i < 360/10; i++) {
-            zofka.move(radius/10);
-            zofka.turnRight(radius/10);
+        double uhel = 360d / pocetStran;
+        for (int i = 0; i < pocetStran; i++) {
+            zofka.move(delkaStrany);
+            zofka.turnRight(uhel);
         }
         zofka.penUp();
-        zofka.turnRight(90);
-        zofka.move(radius);
-
     }
 
     public void rightTriangle(double sideLength, Color lineColor) {
